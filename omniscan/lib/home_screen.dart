@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:omniscan/scan_screen.dart';
-import 'package:omniscan/merge_screen.dart';
-import 'package:omniscan/compress_screen.dart';
-import 'package:omniscan/changebg_screen.dart';
-import 'package:omniscan/ocr_screen.dart';
-import 'package:omniscan/htr_screen.dart';
-
+import 'scan_screen.dart';
+import 'merge_screen.dart';
+import 'compress_screen.dart';
+import 'changebg_screen.dart';
+import 'ocr_screen.dart';
+import 'htr_screen.dart';
+import 'dart:async';
+import 'dart:io';
+import 'package:camera/camera.dart';
+import 'lib/camera.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({ Key? key }) : super(key: key);
 
@@ -38,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                      	builder: (context) => ScanScreeen()
+                      	builder: (context) => ScanScreen()
                       ),
                     );  
                   }  
@@ -47,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                      	builder: (context) => MergeScreeen()
+                      	builder: (context) => MergeScreen()
                       ),
                     );
                   }
@@ -55,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                      	builder: (context) => CompressScreeen()
+                      	builder: (context) => CompressScreen()
                       ),
                     );
                   }
@@ -63,23 +66,29 @@ class _HomeScreenState extends State<HomeScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                      	builder: (context) => ChangeBGScreeen()
+                      	builder: (context) => ChangeBGScreen()
                       ),
                     );
                   }
                   else if (title == "Image to Text") {
+                    Future<void> camera() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final cameras = await availableCameras();
+  final firstCamera = cameras.first;
+
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                      	builder: (context) => OCRScreeen()
+                      	builder: (context) => TakePictureScreen(camera: firstCamera)
                       ),
                     );
+                  }
                   }
                   else if (title == "Handwriting to Text") {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                      	builder: (context) => HTRScreeen()
+                      	builder: (context) => HTRScreen()
                       ),
                     );
                   }   
