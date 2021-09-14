@@ -5,10 +5,6 @@ import 'compress_screen.dart';
 import 'changebg_screen.dart';
 import 'ocr_screen.dart';
 import 'htr_screen.dart';
-import 'dart:async';
-import 'dart:io';
-import 'package:camera/camera.dart';
-import 'lib/camera.dart';
 class HomeScreen extends StatefulWidget {
   const HomeScreen({ Key? key }) : super(key: key);
 
@@ -71,18 +67,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     );
                   }
                   else if (title == "Image to Text") {
-                    Future<void> camera() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  final cameras = await availableCameras();
-  final firstCamera = cameras.first;
-
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                      	builder: (context) => TakePictureScreen(camera: firstCamera)
+                      	builder: (context) => OCRScreen()
                       ),
                     );
-                  }
+                    
                   }
                   else if (title == "Handwriting to Text") {
                     Navigator.push(
