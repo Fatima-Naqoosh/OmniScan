@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:omniscan/home_screen.dart';
+import 'home_screen.dart';
+import 'package:camera/camera.dart';
+import 'dart:async';
 
+List<CameraDescription> cameras;
 
-void main() {
-  runApp(MyApp());
+Future<Null> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  cameras = await availableCameras();
+  runApp(new MyApp());
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -12,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: HomeScreen(cameras),
     );
   }
 }
