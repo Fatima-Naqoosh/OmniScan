@@ -10,7 +10,6 @@ environment:
 
 dependencies:
   camera: ^0.9.2+2
-  carousel_slider: ^4.0.0
   file_picker: ^4.0.2
   flutter:
     sdk: flutter
