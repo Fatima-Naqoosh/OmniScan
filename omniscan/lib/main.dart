@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:omniscan/home_screen.dart';
+import 'dart:async';
+import 'dart:io';
+import 'package:camera/camera.dart';
 
 
-void main() {
+
+Future<void> main() async {
   runApp(MyApp());
 }
 class MyApp extends StatelessWidget {
