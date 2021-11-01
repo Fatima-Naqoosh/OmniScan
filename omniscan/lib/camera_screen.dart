@@ -38,10 +38,11 @@ class _CameraScreenState extends State<CameraScreen> {
           FutureBuilder(
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.done) {
-                  return Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: MediaQuery.of(context).size.height,
-                      child: CameraPreview(_cameraController));
+                  return  AspectRatio(
+                      /*width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height,*/
+                      aspectRatio: _cameraController.value.aspectRatio,
+                      child:  CameraPreview(_cameraController));
                 } else {
                   return Center(
                     child: CircularProgressIndicator(),

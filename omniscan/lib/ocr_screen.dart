@@ -8,14 +8,17 @@ import 'package:firebase_ml_vision/firebase_ml_vision.dart';
 class OCRScreen extends StatefulWidget {
   var image;
   OCRScreen(this.image);
+  static void processImage(File file) {}
   @override
   _OCRScreenState createState() => _OCRScreenState();
-  static void processImage(File file) {}
+  
 }
 
 class _OCRScreenState extends State<OCRScreen> {
+  bool isprocessed = false;
   var text = '';
   Future processImage(image) async {
+    print("proccesing image");
     FirebaseVisionImage visionImage = FirebaseVisionImage.fromFile(image);
     TextRecognizer textRecognizer = FirebaseVision.instance.textRecognizer();
     VisionText visionText = await textRecognizer.processImage(visionImage);
@@ -27,20 +30,16 @@ class _OCRScreenState extends State<OCRScreen> {
           setState(() {
             var text2 = word.text;
             text = text + text2+ ' ';
-            print("in loop = ");
-            print(text2);
-            print(text);
           });
         }
         text = text + '\n';
       }
     }
-    print("Text = ");
-    print(text);
     textRecognizer.close();
   }
   @override
   Widget build(BuildContext context) {
+    processImage (widget.image);
     return Scaffold(
       body: Column(
         children: <Widget>[
@@ -63,7 +62,8 @@ class _OCRScreenState extends State<OCRScreen> {
           SizedBox(height: 10.0),
           text == ''
               ? Text('Text will display here')
-              :  Expanded(
+              : 
+               Expanded(
                               child: SingleChildScrollView(
                                                               child: Padding(
                                   padding: const EdgeInsets.all(15.0),
