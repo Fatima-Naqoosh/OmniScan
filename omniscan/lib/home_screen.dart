@@ -12,15 +12,7 @@ import 'package:camera/camera.dart';
 import 'dart:async';
 
 class HomeScreen extends StatefulWidget {
-<<<<<<< HEAD
-  const HomeScreen({ Key? key }) : super(key: key);
-=======
-  var cameras;
-  HomeScreen(this.cameras);
-
-  //const HomeScreen({Key? key}) : super(key: key);
-
->>>>>>> a07b2116833150aac3ca8c32b89b98eb3445c506
+  const HomeScreen({Key? key}) : super(key: key);
   @override
   _HomeScreenState createState() => _HomeScreenState();
 }
@@ -55,13 +47,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     child: getCardByTitle(title),
                   ),
                   onTap: () {
-                    if (title == "Scan") {
+                    /*if (title == "Scan") {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => ScanScreen(widget.cameras)),
+                            builder: (context) => ScanScreen()),
                       );
-                    } else if (title == "Merge PDF") {
+                    } else*/ if (title == "Merge PDF") {
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => MergeScreen()),
@@ -82,14 +74,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => OCRScreen(widget.cameras)),
+                            builder: (context) => HTRScreen()),
                       );
-                    } else if (title == "Handwriting to Text") {
+                    }/* else if (title == "Handwriting to Text") {
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => HTRScreen()),
                       );
-                    }
+                    }*/
                   },
                 );
               }).toList(),

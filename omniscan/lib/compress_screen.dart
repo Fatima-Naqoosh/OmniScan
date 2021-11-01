@@ -13,7 +13,6 @@ class CompressScreen extends StatefulWidget {
 class _CompressScreenState extends State<CompressScreen> {
   
   late File _image;
-  late File _pdf;
   late int image_quality;
   late int file_quality;
   getImageFile() async {
