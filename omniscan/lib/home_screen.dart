@@ -2,14 +2,8 @@ import 'package:flutter/material.dart';
 import 'merge_screen.dart';
 import 'compress_screen.dart';
 import 'changebg_screen.dart';
-import 'ocr_screen.dart';
 import 'htr_screen.dart';
-// ignore: unused_import
-import 'scan_screen.dart';
-// ignore: unused_import
-import 'package:camera/camera.dart';
-// ignore: unused_import
-import 'dart:async';
+import 'compressPDF_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -76,10 +70,10 @@ class _HomeScreenState extends State<HomeScreen> {
                         MaterialPageRoute(
                             builder: (context) => HTRScreen()),
                       );
-                    }/* else if (title == "Handwriting to Text") {
+                    } /*else if (title == "Handwriting to Text") {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => HTRScreen()),
+                        MaterialPageRoute(builder: (context) => compressPDFScreen()),
                       );
                     }*/
                   },
