@@ -1,0 +1,39 @@
+{
+    "project_info": {
+      "project_number": "701035913066",
+      "project_id": "omniscan-aa7d1",
+      "storage_bucket": "omniscan-aa7d1.appspot.com"
+    },
+    "client": [
+      {
+        "client_info": {
+          "mobilesdk_app_id": "1:701035913066:android:3e85ea3df4d69b2ea1cf13",
+          "android_client_info": {
+            "package_name": "com.example.omniscan"
+          }
+        },
+        "oauth_client": [
+          {
+            "client_id": "701035913066-2iqi6o6l64bc9a4dr8tjijuqg1iut0lr.apps.googleusercontent.com",
+            "client_type": 3
+          }
+        ],
+        "api_key": [
+          {
+            "current_key": "AIzaSyCJJEUczH9n_LnmK-8dHzEWdNZiqS7qzg0"
+          }
+        ],
+        "services": {
+          "appinvite_service": {
+            "other_platform_oauth_client": [
+              {
+                "client_id": "701035913066-2iqi6o6l64bc9a4dr8tjijuqg1iut0lr.apps.googleusercontent.com",
+                "client_type": 3
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "configuration_version": "1"
+  }

@@ -11,16 +11,18 @@ class CameraScreen extends StatefulWidget {
 class _CameraScreenState extends State<CameraScreen> {
   late CameraController _cameraController;
   late Future<void> cameraValue;
-  late List <CameraDescription> cameras ;
-  
+  late List<CameraDescription> cameras;
+
   @override
   void initState() {
     super.initState();
     setupCameras();
   }
+
   Future setupCameras() async {
     cameras = await availableCameras();
-    _cameraController= new CameraController(cameras[0], ResolutionPreset.ultraHigh);
+    _cameraController =
+        new CameraController(cameras[0], ResolutionPreset.ultraHigh);
     await _cameraController.initialize();
   }
 
@@ -35,20 +37,19 @@ class _CameraScreenState extends State<CameraScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          FutureBuilder(
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.done) {
-                  return  AspectRatio(
-                      /*width: MediaQuery.of(context).size.width,
+          FutureBuilder(builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.done) {
+              return AspectRatio(
+                  /*width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height,*/
-                      aspectRatio: _cameraController.value.aspectRatio,
-                      child:  CameraPreview(_cameraController));
-                } else {
-                  return Center(
-                    child: CircularProgressIndicator(),
-                  );
-                }
-              }),
+                  aspectRatio: _cameraController.value.aspectRatio,
+                  child: CameraPreview(_cameraController));
+            } else {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+          }),
           Positioned(
             bottom: 0.0,
             child: Container(
@@ -61,15 +62,18 @@ class _CameraScreenState extends State<CameraScreen> {
                     mainAxisSize: MainAxisSize.max,
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
+                      // ignore: deprecated_member_use
                       RaisedButton(
-                        padding: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+                        padding:
+                            EdgeInsets.symmetric(vertical: 8, horizontal: 10),
                         onPressed: () {
                           takePhoto(context);
                         },
                         color: Colors.blue,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(30))),
-                        ),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(30))),
+                      ),
                     ],
                   ),
                 ],
