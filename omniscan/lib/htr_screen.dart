@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:omniscan/ocr_screen.dart';
@@ -12,13 +11,16 @@ class HTRScreen extends StatefulWidget {
 }
 
 class _HTRScreenState extends State<HTRScreen> {
+  var _image;
 
   getImageFile() async {
+
     final ImagePicker _picker = ImagePicker();
-    final File? image = (await _picker.pickImage(source: ImageSource.gallery)) as File?;
+    final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+    setState(() {  _image = File(image!.path);  });
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => OCRScreen(image)),
+      MaterialPageRoute(builder: (context) => OCRScreen(_image)),
     );
   }
   Future openCamera() async {

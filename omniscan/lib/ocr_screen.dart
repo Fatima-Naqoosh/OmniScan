@@ -18,7 +18,6 @@ class _OCRScreenState extends State<OCRScreen> {
   bool isprocessed = false;
   var text = '';
   Future processImage(image) async {
-    print("proccesing image");
     FirebaseVisionImage visionImage = FirebaseVisionImage.fromFile(image);
     TextRecognizer textRecognizer = FirebaseVision.instance.textRecognizer();
     VisionText visionText = await textRecognizer.processImage(visionImage);
