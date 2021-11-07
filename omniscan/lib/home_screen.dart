@@ -70,12 +70,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         MaterialPageRoute(
                             builder: (context) => HTRScreen()),
                       );
-                    } /*else if (title == "Handwriting to Text") {
+                    } else if (title == "Handwriting to Text") {
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) => compressPDFScreen()),
                       );
-                    }*/
+                    }
                   },
                 );
               }).toList(),
